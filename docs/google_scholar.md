@@ -9,7 +9,7 @@ uniquely valuable for capturing a category of impact that would otherwise be
 invisible.
 
 The downside is that Google Scholar cannot be accessed programmatically. There
-is technically one paid unofficial API, but it is not Google-endorsed, so
+is no Google-endorsed API, so
 practically speaking Google Scholar has to be worked manually.
 
 ## Overview of the process
