@@ -38,9 +38,8 @@ no other aggregator covers. However, Google Scholar cannot be accessed
 programmatically, so it requires a separate [manual process](docs/google_scholar.md).
 
 Each source produces a candidate list as a CSV. See
-[docs/candidate_template.csv](docs/candidate_template.csv) for the column
-schema. The `find-duplicates` command adds a `reviewed_matches` column
-showing which existing publications a candidate matched against.
+[docs/candidate_template.csv](docs/candidate_template.csv) for the suggested column
+schema.
 
 ### 2. Deduplicate candidates
 
@@ -58,9 +57,11 @@ If any criterion matches, the candidate is flagged as a likely duplicate.
 
 **Manual deduplication review** — Flagged candidates are reviewed by comparing
 their metadata against the existing publication they matched. The key fields
-to compare are title, authors, venue, and publication year. Generally, if
+we compare are title, authors, venue, and publication year. Generally, if
 these fields all match (or nearly match), the candidate is confirmed as a
-duplicate and merged with the existing publication record.
+duplicate and merged with the existing publication record. Source information is retained — a single publication
+can have records from multiple sources, which is useful for analyzing
+source coverage.
 
 In particularly ambiguous cases, the reviewer may compare the actual content
 of the publications to determine whether the work is substantially different.
@@ -75,12 +76,6 @@ applies:
   two. The earlier record is merged into the later one, and metadata is
   updated to reflect the published version (venue, DOI, publication type).
   The reasoning: this is an evolution of the same work, not a new publication.
-
-- **Same paper, multiple sources.** When Scopus, Google Scholar, and a user
-  submission all return the same paper, these are merged into a single
-  publication record. Source information is retained — a single publication
-  can have records from multiple sources, which is useful for analyzing
-  source coverage.
 
 - **Near-duplicates with slight title variations.** Different sources
   sometimes report the same paper with minor title differences (punctuation,
@@ -153,17 +148,13 @@ dissertation submitted to a university is a thesis. The source databases
 often misclassify or omit publication type, so the reviewer determines the
 correct type rather than trusting the imported metadata.
 
-The main categories are:
+The main categories we use are:
 
 - **Conference paper** — includes workshop papers and short papers
 - **Journal article**
 - **Thesis/dissertation** — PhD and MS theses
 - **Self-published** — publications with no formal publication venue. Typically these are papers found on open-access aggregators like arXiv, as well as white papers produced by organizations and technical reports
 - **Other** — patents, presentations, software, books, posters, etc.
-
-`magpub` includes automated type inference from BibTeX entry types and
-keyword heuristics (see `magpub.utils.get_pub_type`), but the automated
-classification is a starting point — the reviewer makes the final call.
 
 ---
 
