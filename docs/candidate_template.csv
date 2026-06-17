@@ -1,0 +1,4 @@
+title,author,year,month,forum,publication_type,doi,link,source_name,source_id,citation_count,originating_query
+Learning Scheduling Algorithms for Data Processing Clusters,Hongzi Mao,2019,6,ACM SIGCOMM 2019,conference paper,10.1145/3341302.3342080,https://doi.org/10.1145/3341302.3342080,openalex,W2963073817,245,citations_of:W4297744025
+A Generative Approach to Network Intrusion Detection,Sarah Chen,2023,3,IEEE S&P 2023,conference paper,10.1109/SP46215.2023.00042,https://doi.org/10.1109/SP46215.2023.00042,scopus,SCOPUS_ID:85159432101,12,"TITLE(""Chameleon Cloud"")"
+Scalable Federated Learning on Heterogeneous Testbeds,James Park,2022,11,,preprint,,https://arxiv.org/abs/2211.09876,semantic_scholar,SS:a1b2c3d4,3,chameleon cloud testbed
